@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -27,8 +27,6 @@
       padding-top: 150px;
     }
 
-
-
     .navbar {
       width: 100%;
       display: flex;
@@ -42,7 +40,6 @@
       left: 0;
       right: 0;
     }
-
 
     .naila-logo {
       height: 60px;
@@ -212,7 +209,7 @@
 
     @media (max-width: 480px) {
       body {
-        padding-top: 90px; /* Adjust for fixed navbar */
+        padding-top: 50px; 
       }
 
       .navbar {
@@ -222,23 +219,23 @@
       }
 
       .logo {
-        height: 130px; /* Reduce the logo size */
+        height: 130px; 
       }
 
       .naila-logo {
-        height: 50px; /* Reduce the logo size */
+        height: 50px; 
       }
 
       h1 {
-        font-size: 1.5rem; /* Decrease headline font */
+        font-size: 1.5rem; 
       }
 
       .tagline {
-        font-size: 1.3rem; /* Decrease tagline font */
+        font-size: 1.3rem; 
       }
 
       p {
-        font-size: 0.90rem; /* Decrease paragraph font */
+        font-size: 0.90rem; 
       }
 
       .form-group input {
@@ -263,14 +260,12 @@
   </style>
 </head>
 <body>
-  <!-- Navbar -->
   <div class="navbar">
     <a href="https://www.naila.lk">
       <img src="naila-logo.png" alt="Naila Logo" class="naila-logo" />
     </a>
   </div>
 
-  <!-- Main Content -->
   <main class="main">
     <div class="container">
       <img src="logo.jpg" alt="Naila Logo" class="logo" />
@@ -290,7 +285,6 @@
     </div>
   </main>
 
-  <!-- Footer -->
   <footer>
     <div class="socials">
       <a href="https://www.linkedin.com/company/projectnaila" target="_blank">
@@ -303,7 +297,6 @@
     © 2025 Naila. All rights reserved.
   </footer>
 
-  <!-- Script -->
   <script>
     const form = document.getElementById('newsletter-form');
     const alertBox = document.getElementById('alert');
@@ -324,6 +317,373 @@
       })
       .catch(() => {
         showAlert("Something went wrong. Please try again.", 'error');
+      });
+    });
+
+    function showAlert(message, type) {
+      alertBox.className = `alert ${type}`;
+      alertBox.textContent = message;
+      alertBox.style.display = 'block';
+      setTimeout(() => {
+        alertBox.style.display = 'none';
+      }, 4000);
+    }
+  </script>
+</body>
+</html>
+ -->
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Naila – Your Learning Companion</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #7daedb, #dbe6f2);
+      overflow-x: hidden;
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding-top: 150px;
+    }
+
+    .navbar {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background-color: white;
+      z-index: 999; 
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+
+    .naila-logo {
+      height: 60px;
+    }
+
+    .main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 600px;
+      width: 100%;
+      animation: fadeIn 2s ease-in-out forwards;
+      opacity: 0;
+    }
+
+    .logo {
+      height: 200px;
+      margin-bottom: 20px;
+      border-radius: 50%;
+      animation: slideDown 1.5s ease-out forwards;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      background: linear-gradient(90deg, #0077B5, #E1306C);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: fadeInUp 2s ease forwards;
+    }
+
+    .tagline {
+      font-family: 'Poppins', sans-serif;
+      font-weight: bold;
+      color: #1b2c75;
+      font-size: 2rem;
+      animation: fadeInUp 2.5s ease forwards;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: #555;
+      margin-bottom: 30px;
+      animation: fadeInUp 2.8s ease forwards;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .form-group input {
+      width: 50%;
+      padding: 12px 16px;
+      border: 1px solid #ccc;
+      border-radius: 30px;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    .form-group input:focus {
+      border-color: #0077B5;
+    }
+
+    button {
+      padding: 12px 24px;
+      font-size: 1rem;
+      background-color: #0077B5;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    button:hover {
+      background-color: #005f8d;
+    }
+
+    .spinner {
+      width: 16px;
+      height: 16px;
+      border: 2px solid #fff;
+      border-top: 2px solid #0077B5;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      display: none;
+      margin-left: 10px;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .alert {
+      display: none;
+      padding: 12px;
+      border-radius: 6px;
+      margin-bottom: 20px;
+      font-size: 0.95rem;
+    }
+
+    .alert.success {
+      background-color: #d4edda;
+      color: #155724;
+    }
+
+    .alert.error {
+      background-color: #f8d7da;
+      color: #721c24;
+    }
+
+    footer {
+      width: 100%;
+      text-align: center;
+      padding: 20px;
+      color: #888;
+      font-size: 0.9rem;
+      background-color: white;
+      margin-top: 40px;
+    }
+
+    .socials {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 10px;
+    }
+
+    .socials a img {
+      width: 30px;
+      height: 30px;
+      transition: transform 0.3s;
+    }
+
+    .socials a:hover img {
+      transform: scale(1.1);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(40px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideDown {
+      0% { opacity: 0; transform: translateY(-40px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      .form-group input {
+        width: 80%;
+      }
+
+      button {
+        width: 80%;
+      }
+
+      .socials {
+        gap: 16px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding-top: 50px; 
+      }
+
+      .navbar {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+      }
+
+      .logo {
+        height: 130px; 
+      }
+
+      .naila-logo {
+        height: 50px; 
+      }
+
+      h1 {
+        font-size: 1.5rem; 
+      }
+
+      .tagline {
+        font-size: 1.3rem; 
+      }
+
+      p {
+        font-size: 0.90rem; 
+      }
+
+      .form-group input {
+        width: 90%;
+      }
+
+      button {
+        width: 40%;
+      }
+
+      .socials {
+        align-self: center;
+      }
+
+      .socials a img {
+        width: 22px;
+        height: 22px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <a href="https://www.naila.lk">
+      <img src="naila-logo.png" alt="Naila Logo" class="naila-logo" />
+    </a>
+  </div>
+
+  <main class="main">
+    <div class="container">
+      <img src="logo.jpg" alt="Naila Logo" class="logo" />
+      <p class="tagline">Track. Learn. Rise.</p>
+      <h1>The Future of Learning Starts with <span style="font-family: 'Poppins', sans-serif;">Naila</span></h1>
+      <p>The Wait is Worth the Wisdom – Naila is Coming! 🚀</p>
+
+      <div id="alert" class="alert"></div>
+
+      <form id="newsletter-form">
+        <div class="form-group">
+          <input type="text" name="name" placeholder="Your name" required />
+          <input type="email" name="email" placeholder="Your email" required />
+        </div>
+        <button type="submit" id="submit-btn">
+          <span class="btn-text">Notify Me</span>
+          <span class="spinner" id="spinner"></span>
+        </button>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    <div class="socials">
+      <a href="https://www.linkedin.com/company/projectnaila" target="_blank">
+        <img src="./linkedin.jpeg" alt="LinkedIn" />
+      </a>
+      <a href="https://www.instagram.com/projectnaila" target="_blank">
+        <img src="./instagram.png" alt="Instagram" />
+      </a>
+    </div>
+    © 2025 Naila. All rights reserved.
+  </footer>
+
+  <script>
+    const form = document.getElementById('newsletter-form');
+    const alertBox = document.getElementById('alert');
+    const scriptURL = "https://script.google.com/macros/s/AKfycbzdRKGY5XYdY_I_3yiRY0xaPo4_4uazPdl-ZsknkxiGLKTKd0tAPCdxjp3A9SaOzmBP/exec";
+    const submitBtn = document.getElementById('submit-btn');
+    const spinner = document.getElementById('spinner');
+    const btnText = submitBtn.querySelector('.btn-text');
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const formData = new FormData(form);
+
+      // Show loading
+      spinner.style.display = 'inline-block';
+      submitBtn.disabled = true;
+      btnText.textContent = 'Submitting...';
+
+      fetch(scriptURL, {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => response.json())
+      .then(() => {
+        form.reset();
+        showAlert("You're all set! 🎉 We'll let you know when Naila launches.", 'success');
+      })
+      .catch(() => {
+        showAlert("Something went wrong. Please try again.", 'error');
+      })
+      .finally(() => {
+        spinner.style.display = 'none';
+        submitBtn.disabled = false;
+        btnText.textContent = 'Notify Me';
       });
     });
 
