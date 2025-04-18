@@ -155,11 +155,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Naila – Your Learning Companion</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -169,180 +167,246 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background-color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+      background: linear-gradient(135deg, #f0f8ff, #ffffff);
+      overflow-x: hidden;
       color: #333;
-      overflow: hidden;
-      text-align: center;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .navbar {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       padding: 20px;
+      background-color: white;
+      z-index: 2;
     }
 
-    .tagline{
-      font-family: "Poppins", sans-serif;
-      font-weight: bold;
-      font-style: normal;
-      color: #1b2c75;
-      font-size: 2rem;
-
-
-    }
-
-    span{
-      font-family: "Poppins", sans-serif;
-      color: #1b2c75;
-
-
-    }
-    .container {
-      animation: fadeIn 2s ease-in-out forwards;
-      opacity: 0;
-      max-width: 90%;
-    }
-
-    img.logo {
-      height: 200px;
-      margin-bottom: 20px;
-      animation: slideDown 1.5s ease-out forwards;
-    }
-
-    h1 {
-      font-size: 3rem;
-      color: #3a3a3a;
-      margin-bottom: 10px;
-      animation: fadeInUp 2s ease forwards;
-    }
-
-    p {
-      font-size: 1.2rem;
-      color: #666;
-      margin-bottom: 30px;
-      animation: fadeInUp 2.5s ease forwards;
+    .naila-logo {
+      height: 50px;
     }
 
     .socials {
       display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
+      gap: 16px;
     }
 
-    .instagram-follow-button,
-    .linkedin-follow-button {
-      display: inline-flex;
+    .socials a img {
+      width: 24px;
+      height: 24px;
+    }
+
+    .main {
+      flex: 1;
+      display: flex;
       align-items: center;
-      padding: 10px 20px;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 600px;
+      width: 100%;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      background: linear-gradient(90deg, #0077B5, #E1306C);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: #555;
+      margin-bottom: 30px;
+    }
+
+    .alert {
+      display: none;
+      padding: 12px;
+      border-radius: 6px;
+      margin-bottom: 20px;
+      font-size: 0.95rem;
+    }
+
+    .alert.success {
+      background-color: #d4edda;
+      color: #155724;
+    }
+
+    .alert.error {
+      background-color: #f8d7da;
+      color: #721c24;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .form-group input {
+      padding: 12px 16px;
+      border: 1px solid #ccc;
       border-radius: 30px;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 14px;
-      color: #fff;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.3s;
+      width: 50%;
+      margin: 0 auto;
+      align-items: center;
     }
 
-    .instagram-follow-button {
-      background-color: #E1306C;
+    .form-group input:focus {
+      border-color: #0077B5;
     }
 
-    .instagram-follow-button:hover {
-      background-color: #C13584;
-    }
-
-    .linkedin-follow-button {
+    button {
+      padding: 12px 24px;
+      font-size: 1rem;
       background-color: #0077B5;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background-color 0.3s;
     }
 
-    .linkedin-follow-button:hover {
+    button:hover {
       background-color: #005f8d;
     }
 
-    .instagram-follow-button img,
-    .linkedin-follow-button img {
-      width: 20px;
-      height: 20px;
-      margin-right: 10px;
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #888;
+      font-size: 0.9rem;
+      background-color: white;
     }
 
-    video {
-      display: none; /* If not needed immediately, hide it or adjust below */
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeInUp {
-      0% { opacity: 0; transform: translateY(40px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes slideDown {
-      0% { opacity: 0; transform: translateY(-40px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Tablet Screens */
-    @media (max-width: 1024px) {
-      img.logo {
-        height: 160px;
-      }
-
+    @media (max-width: 768px) {
       h1 {
-        font-size: 2.5rem;
+        font-size: 2rem;
       }
 
-      p {
-        font-size: 1rem;
-        font-family: "Inter", sans-serif;
+      .form-group {
+        gap: 10px;
       }
 
-      .instagram-follow-button,
-      .linkedin-follow-button {
-        font-size: 13px;
-        padding: 8px 18px;
+      button {
+        width: 100%;
       }
     }
 
-    /* Mobile Screens */
-    @media (max-width: 600px) {
-      .socials {
+    @media (max-width: 480px) {
+      .navbar {
         flex-direction: column;
-        gap: 15px;
-        align-items: center; /* Add this */
+        gap: 10px;
+        align-items: flex-start;
       }
 
-      .instagram-follow-button,
-      .linkedin-follow-button {
-        font-size: 12px;
-        padding: 8px 16px;
-        width: auto; /* Add this to avoid full-width stretch */
+      .socials {
+        align-self: flex-end;
       }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <img src="logo.jpg" alt="Naila Logo" class="logo" />
-    <p class="tagline">Track. Learn. Rise.</p>
-    <h1>The Future of Learning Starts with <span>Naila</span></h1>
-    <p>The Wait is Worth the Wisdom – Naila is Coming! 🚀</p>
-
+  <!-- Navbar -->
+  <div class="navbar">
+    <a href="https://www.naila.lk">
+      <img src="naila-logo.png" alt="Naila Logo" class="naila-logo" />
+    </a>
     <div class="socials">
-      <a href="https://www.linkedin.com/company/projectnaila" target="_blank" class="linkedin-follow-button">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn" />
-        Follow on LinkedIn
+      <a href="https://www.linkedin.com/company/projectnaila" target="_blank">
+        <img src="./linkedin-icon.png" alt="LinkedIn" />
       </a>
-
-      <a href="https://www.instagram.com/projectnaila" target="_blank" class="instagram-follow-button">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" />
-        Follow on Instagram
+      <a href="https://www.instagram.com/projectnaila" target="_blank">
+        <img src="./instagram-icon.png" alt="Instagram" />
       </a>
     </div>
-
-    <!-- Optional: include this if the video is part of the design -->
-    <!-- <video src="./Animation - 1744183408308.mp4" autoplay muted loop playsinline style="margin-top: 40px; max-width: 100%; height: auto;"></video> -->
   </div>
+
+  <!-- Main Content -->
+  <main class="main">
+    <div class="container">
+      <h1>The Future of Learning Starts with <span style="font-family: 'Poppins', sans-serif;">Naila</span></h1>
+      <p>The wait is worth the wisdom – Naila is coming soon! 🚀</p>
+
+      <div id="alert" class="alert"></div>
+
+      <form id="newsletter-form">
+        <div class="form-group">
+          <input type="text" name="name" placeholder="Your name" required />
+          <input type="email" name="email" placeholder="Your email" required />
+        </div>
+        <button type="submit">Notify Me</button>
+      </form>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 Naila. All rights reserved.
+  </footer>
+
+  <script>
+    const form = document.getElementById('newsletter-form');
+    const alertBox = document.getElementById('alert');
+
+    const scriptURL = "https://script.google.com/macros/s/AKfycbzdRKGY5XYdY_I_3yiRY0xaPo4_4uazPdl-ZsknkxiGLKTKd0tAPCdxjp3A9SaOzmBP/exec";
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const formData = new FormData(form);
+
+      fetch(scriptURL, {
+        method: 'POST',
+        body: formData,
+        mode: 'no-cors'
+      })
+      .then(() => {
+        form.reset();
+        showAlert("You're all set! 🎉 We'll let you know when Naila launches.", 'success');
+      })
+      .catch(() => {
+        showAlert("Something went wrong. Please try again.", 'error');
+      });
+
+    fetch(scriptURL, {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => {
+        return response.json(); // Make sure the response is handled as JSON
+    })
+    .then(() => {
+        form.reset();
+        showAlert("You're all set! 🎉 We'll let you know when Naila launches.", 'success');
+    })
+    .catch(() => {
+        showAlert("Something went wrong. Please try again.", 'error');
+    });
+
+    });
+
+    function showAlert(message, type) {
+      alertBox.className = `alert ${type}`;
+      alertBox.textContent = message;
+      alertBox.style.display = 'block';
+
+      setTimeout(() => {
+        alertBox.style.display = 'none';
+      }, 4000);
+    }
+  </script>
 </body>
 </html>
+
