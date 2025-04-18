@@ -364,6 +364,19 @@
                 alertBox.style.display = 'none';
             }, 4000);
         }
+
+        function doPost(e) {
+          Logger.log("Received parameters: " + JSON.stringify(e.parameter)); // Log the parameters
+          var ss = SpreadsheetApp.getActiveSpreadsheet();
+          var sheet = ss.getSheetByName("Naila Signups");
+          Logger.log("Sheet object: " + sheet); // Log the sheet object
+          var timestamp = new Date();
+          var name = e.parameter.name;
+          var email = e.parameter.email;
+          Logger.log("Name: " + name + ", Email: " + email + ", Timestamp: " + timestamp); // Log the data before appending
+          sheet.appendRow([name, email, timestamp]);
+          return HtmlService.createHtmlOutput('<!DOCTYPE html><html><head><title>Data Received</title></head><body><p>Thank you for signing up!</p></body></html>');
+        }
     </script>
 </body>
 </html>
