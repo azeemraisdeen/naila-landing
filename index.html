@@ -167,7 +167,8 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, #f0f8ff, #ffffff);
+      background: linear-gradient(135deg, #7daedb, #dbe6f2);
+
       overflow-x: hidden;
       color: #333;
       min-height: 100vh;
@@ -175,8 +176,10 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
-      /* padding: 20px; */
+      padding-top: 100px;
     }
+
+
 
     .navbar {
       width: 100%;
@@ -185,8 +188,13 @@
       align-items: center;
       padding: 20px;
       background-color: white;
-      z-index: 2;
+      z-index: 999; 
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
     }
+
 
     .naila-logo {
       height: 60px;
@@ -355,14 +363,34 @@
     }
 
     @media (max-width: 480px) {
+      body {
+        padding-top: 50px; /* Adjust for fixed navbar */
+      }
+
       .navbar {
         flex-direction: column;
         gap: 10px;
         align-items: flex-start;
       }
 
-      .socials {
-        align-self: center;
+      .logo {
+        height: 130px; /* Reduce the logo size */
+      }
+
+      .naila-logo {
+        height: 50px; /* Reduce the logo size */
+      }
+
+      h1 {
+        font-size: 1.5rem; /* Decrease headline font */
+      }
+
+      .tagline {
+        font-size: 1.3rem; /* Decrease tagline font */
+      }
+
+      p {
+        font-size: 0.90rem; /* Decrease paragraph font */
       }
 
       .form-group input {
@@ -370,9 +398,20 @@
       }
 
       button {
-        width: 90%;
+        width: 40%;
       }
+
+      .socials {
+        align-self: center;
+      }
+
+      .socials a img {
+        width: 22px;
+        height: 22px;
+        transition: transform 0.3s;
     }
+    }
+
   </style>
 </head>
 <body>
@@ -407,10 +446,10 @@
   <footer>
     <div class="socials">
       <a href="https://www.linkedin.com/company/projectnaila" target="_blank">
-        <img src="./linkedin-icon.png" alt="LinkedIn" />
+        <img src="./linkedin.jpeg" alt="LinkedIn" />
       </a>
       <a href="https://www.instagram.com/projectnaila" target="_blank">
-        <img src="./instagram-icon.png" alt="Instagram" />
+        <img src="./instagram.png" alt="Instagram" />
       </a>
     </div>
     © 2025 Naila. All rights reserved.
