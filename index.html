@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Naila – Your Learning Companion</title>
+    <link rel="icon" type="image/x-icon" href="./favicon-192x192.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
         /* Your existing CSS styles remain the same */
@@ -318,65 +319,117 @@
     </footer>
 
     <script>
-        const form = document.getElementById('newsletter-form');
-        const alertBox = document.getElementById('alert');
-        // IMPORTANT: Replace this URL with the Web app URL you get after deploying the new Google Apps Script
-        const scriptURL = "https://script.google.com/macros/s/AKfycbzdRKGY5XYdY_I_3yiRY0xaPo4_4uazPdl-ZsknkxiGLKTKd0tAPCdxjp3A9SaOzmBP/exec";
-        const submitBtn = document.getElementById('submit-btn');
-        const spinner = document.getElementById('spinner');
-        const btnText = submitBtn.querySelector('.btn-text');
+        // const form = document.getElementById('newsletter-form');
+        // const alertBox = document.getElementById('alert');
+        // // IMPORTANT: Replace this URL with the Web app URL you get after deploying the new Google Apps Script
+        // const scriptURL = "https://script.google.com/macros/s/AKfycbzdRKGY5XYdY_I_3yiRY0xaPo4_4uazPdl-ZsknkxiGLKTKd0tAPCdxjp3A9SaOzmBP/exec";
+        // const submitBtn = document.getElementById('submit-btn');
+        // const spinner = document.getElementById('spinner');
+        // const btnText = submitBtn.querySelector('.btn-text');
 
-        form.addEventListener('submit', e => {
-            e.preventDefault();
-            const formData = new FormData(form);
+        // form.addEventListener('submit', e => {
+        //     e.preventDefault();
+        //     const formData = new FormData(form);
 
-            // Show loading
-            spinner.style.display = 'inline-block';
-            submitBtn.disabled = true;
-            btnText.textContent = 'Submitting...';
+        //     // Show loading
+        //     spinner.style.display = 'inline-block';
+        //     submitBtn.disabled = true;
+        //     btnText.textContent = 'Submitting...';
 
-            fetch(scriptURL, {
-                method: 'POST', // Ensure the method is POST
-                body: formData
-            })
-            .then(response => response.text()) // Expecting text response from the doPost function
-            .then(data => {
-                form.reset();
-                showAlert("You're all set! 🎉 We'll let you know when Naila launches.", 'success');
-                console.log(data); // Optional: Log the response from the script
-            })
-            .catch(error => {
-                showAlert("Something went wrong. Please try again.", 'error');
-                console.error('Error!', error.message);
-            })
-            .finally(() => {
-                spinner.style.display = 'none';
-                submitBtn.disabled = false;
-                btnText.textContent = 'Notify Me';
-            });
+        //     fetch(scriptURL, {
+        //         method: 'POST', // Ensure the method is POST
+        //         body: formData
+        //     })
+        //     .then(response => response.text()) // Expecting text response from the doPost function
+        //     .then(data => {
+        //         form.reset();
+        //         showAlert("You're all set! 🎉 We'll let you know when Naila launches.", 'success');
+        //         console.log(data); // Optional: Log the response from the script
+        //     })
+        //     .catch(error => {
+        //         showAlert("Something went wrong. Please try again.", 'error');
+        //         console.error('Error!', error.message);
+        //     })
+        //     .finally(() => {
+        //         spinner.style.display = 'none';
+        //         submitBtn.disabled = false;
+        //         btnText.textContent = 'Notify Me';
+        //     });
+        // });
+
+        // function showAlert(message, type) {
+        //     alertBox.className = `alert ${type}`;
+        //     alertBox.textContent = message;
+        //     alertBox.style.display = 'block';
+        //     setTimeout(() => {
+        //         alertBox.style.display = 'none';
+        //     }, 4000);
+        // }
+
+        // function doPost(e) {
+        //   Logger.log("Received parameters: " + JSON.stringify(e.parameter)); // Log the parameters
+        //   var ss = SpreadsheetApp.getActiveSpreadsheet();
+        //   var sheet = ss.getSheetByName("Naila Signups");
+        //   Logger.log("Sheet object: " + sheet); // Log the sheet object
+        //   var timestamp = new Date();
+        //   var name = e.parameter.name;
+        //   var email = e.parameter.email;
+        //   Logger.log("Name: " + name + ", Email: " + email + ", Timestamp: " + timestamp); // Log the data before appending
+        //   sheet.appendRow([name, email, timestamp]);
+        //   return HtmlService.createHtmlOutput('<!DOCTYPE html><html><head><title>Data Received</title></head><body><p>Thank you for signing up!</p></body></html>');
+        // }
+      const form = document.getElementById('newsletter-form');
+      const alertBox = document.getElementById('alert');
+      const submitBtn = document.getElementById('submit-btn');
+      const spinner = document.getElementById('spinner');
+      const btnText = submitBtn.querySelector('.btn-text');
+    
+      // IMPORTANT: Replace with your actual Web App URL
+      const scriptURL = "https://script.google.com/macros/s/AKfycbzdRKGY5XYdY_I_3yiRY0xaPo4_4uazPdl-ZsknkxiGLKTKd0tAPCdxjp3A9SaOzmBP/exec";
+    
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        const formData = new FormData(form);
+    
+        // Show loading state
+        spinner.style.display = 'inline-block';
+        submitBtn.disabled = true;
+        btnText.textContent = 'Submitting...';
+    
+        fetch(scriptURL, {
+          method: 'POST',
+          body: formData
+        })
+        .then(response => response.json()) // Parse the JSON response
+        .then(data => {
+          form.reset();
+          if (data.result === "success") {
+            showAlert(data.message, 'success');
+          } else {
+            showAlert(data.message, 'error');
+          }
+        })
+        .catch(error => {
+          showAlert("Something went wrong. Please try again.", 'error');
+          console.error('Error!', error.message);
+        })
+        .finally(() => {
+          // Hide loading state
+          spinner.style.display = 'none';
+          submitBtn.disabled = false;
+          btnText.textContent = 'Notify Me';
         });
-
-        function showAlert(message, type) {
-            alertBox.className = `alert ${type}`;
-            alertBox.textContent = message;
-            alertBox.style.display = 'block';
-            setTimeout(() => {
-                alertBox.style.display = 'none';
-            }, 4000);
-        }
-
-        function doPost(e) {
-          Logger.log("Received parameters: " + JSON.stringify(e.parameter)); // Log the parameters
-          var ss = SpreadsheetApp.getActiveSpreadsheet();
-          var sheet = ss.getSheetByName("Naila Signups");
-          Logger.log("Sheet object: " + sheet); // Log the sheet object
-          var timestamp = new Date();
-          var name = e.parameter.name;
-          var email = e.parameter.email;
-          Logger.log("Name: " + name + ", Email: " + email + ", Timestamp: " + timestamp); // Log the data before appending
-          sheet.appendRow([name, email, timestamp]);
-          return HtmlService.createHtmlOutput('<!DOCTYPE html><html><head><title>Data Received</title></head><body><p>Thank you for signing up!</p></body></html>');
-        }
+      });
+    
+      function showAlert(message, type) {
+        alertBox.className = `alert ${type}`;
+        alertBox.textContent = message;
+        alertBox.style.display = 'block';
+        // We'll keep the setTimeout to automatically hide the message after a few seconds
+        setTimeout(() => {
+          alertBox.style.display = 'none';
+        }, 4000);
+      }
     </script>
 </body>
 </html>
