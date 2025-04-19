@@ -378,69 +378,69 @@
         //   sheet.appendRow([name, email, timestamp]);
         //   return HtmlService.createHtmlOutput('<!DOCTYPE html><html><head><title>Data Received</title></head><body><p>Thank you for signing up!</p></body></html>');
         // }
-         <script>
-  const form = document.getElementById('newsletter-form');
-  const alertBox = document.getElementById('alert');
-  const submitBtn = document.getElementById('submit-btn');
-  const spinner = document.getElementById('spinner');
-  const btnText = submitBtn.querySelector('.btn-text');
+        
+          const form = document.getElementById('newsletter-form');
+          const alertBox = document.getElementById('alert');
+          const submitBtn = document.getElementById('submit-btn');
+          const spinner = document.getElementById('spinner');
+          const btnText = submitBtn.querySelector('.btn-text');
+        
+          // IMPORTANT: Replace with your actual Web App URL
+          const scriptURL = "https://script.google.com/macros/s/AKfycbzdRKGY5XYdY_I_3yiRY0xaPo4_4uazPdl-ZsknkxiGLKTKd0tAPCdxjp3A9SaOzmBP/exec";
+        
+          form.addEventListener('submit', e => {
+            e.preventDefault();
+            //const formData = new FormData(form);  // Removed FormData
+            
+            //Manually construct the data string
+            let name = form.querySelector('[name="Name"]').value;
+            let email = form.querySelector('[name="Email"]').value;
+            let dataString = `Name=${encodeURIComponent(name)}&Email=${encodeURIComponent(email)}`;
+        
+            // Show loading state
+            spinner.style.display = 'inline-block';
+            submitBtn.disabled = true;
+            btnText.textContent = 'Submitting...';
+        
+            fetch(scriptURL, {
+              method: 'POST',
+              //body: formData  // Removed formData
+              body: dataString,
+              headers: {
+                'Content-Type': 'application/x-www-form-urlencoded' // Add this header
+              }
+            })
+            .then(response => response.json())
+            .then(data => {
+              form.reset();
+              if (data.result === "success") {
+                showAlert(data.message, 'success');
+              } else {
+                showAlert(data.message, 'error');
+              }
+            })
+            .catch(error => {
+              showAlert("Something went wrong. Please try again.", 'error');
+              console.error('Error!', error.message);
+            })
+            .finally(() => {
+              // Hide loading state
+              spinner.style.display = 'none';
+              submitBtn.disabled = false;
+              btnText.textContent = 'Notify Me';
+            });
+          });
+        
+          function showAlert(message, type) {
+            alertBox.className = `alert ${type}`;
+            alertBox.textContent = message;
+            alertBox.style.display = 'block';
+            // We'll keep the setTimeout to automatically hide the message after a few seconds
+            setTimeout(() => {
+              alertBox.style.display = 'none';
+            }, 4000);
+          }
 
-  // IMPORTANT: Replace with your actual Web App URL
-  const scriptURL = "https://script.google.com/macros/s/AKfycbzdRKGY5XYdY_I_3yiRY0xaPo4_4uazPdl-ZsknkxiGLKTKd0tAPCdxjp3A9SaOzmBP/exec";
-
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-    //const formData = new FormData(form);  // Removed FormData
-    
-    //Manually construct the data string
-    let name = form.querySelector('[name="Name"]').value;
-    let email = form.querySelector('[name="Email"]').value;
-    let dataString = `Name=${encodeURIComponent(name)}&Email=${encodeURIComponent(email)}`;
-
-    // Show loading state
-    spinner.style.display = 'inline-block';
-    submitBtn.disabled = true;
-    btnText.textContent = 'Submitting...';
-
-    fetch(scriptURL, {
-      method: 'POST',
-      //body: formData  // Removed formData
-      body: dataString,
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded' // Add this header
-      }
-    })
-    .then(response => response.json())
-    .then(data => {
-      form.reset();
-      if (data.result === "success") {
-        showAlert(data.message, 'success');
-      } else {
-        showAlert(data.message, 'error');
-      }
-    })
-    .catch(error => {
-      showAlert("Something went wrong. Please try again.", 'error');
-      console.error('Error!', error.message);
-    })
-    .finally(() => {
-      // Hide loading state
-      spinner.style.display = 'none';
-      submitBtn.disabled = false;
-      btnText.textContent = 'Notify Me';
-    });
-  });
-
-  function showAlert(message, type) {
-    alertBox.className = `alert ${type}`;
-    alertBox.textContent = message;
-    alertBox.style.display = 'block';
-    // We'll keep the setTimeout to automatically hide the message after a few seconds
-    setTimeout(() => {
-      alertBox.style.display = 'none';
-    }, 4000);
-  }
-</script>
 
     </script>
 </body>
