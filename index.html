@@ -402,8 +402,30 @@
           mode: 'no-cors',
           body: formData
         })
-        .then(response => response.json()) // Parse the JSON response
-        .then(data => {
+        // .then(response => response.json()) // Parse the JSON response
+        .then(response => {
+            if (!response.ok) { // Check for HTTP errors
+                throw new Error('HTTP error ' + response.status);
+            }
+            if (response.headers.get("content-length") == "0") {
+              throw new Error('Empty response body');
+            }
+            return response.json(); // Parse the JSON response
+          })
+          .then(data => {
+            form.reset();
+            if (data.result === "success") {
+              showAlert(data.message, 'success');
+            } else {
+              showAlert(data.message, 'error');
+            }
+          })
+          .catch(error => {
+            showAlert("Something went wrong. Please try again.", 'error');
+            console.error('Error!', error.message); // Log the error details
+          })
+            
+          .then(data => {
           form.reset();
           if (data.result === "success") {
             showAlert(data.message, 'success');
