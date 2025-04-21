@@ -314,12 +314,12 @@
   }
 
   .alert.success {
-    background-color: darkgreen;
-    color: #b7eacb;
+    background-color: #1c3d2a; 
+    color: darkgreen;
   }
 
   .alert.error {
-    background-color: #3a1c1c; /* toned-down dark red */
+    background-color: #3a1c1c;
     color: #f3b3b3;
   }
 
