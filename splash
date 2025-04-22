@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Naila – Loading</title>
+  <style>
+    :root {
+      --primary: #6ebeff;
+      --secondary: #a0e6ff;
+      --white: #ffffff;
+      --accent: #00c2ff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Poppins', sans-serif;
+      overflow: hidden;
+      background: linear-gradient(-45deg, var(--primary), var(--secondary), #f0f9ff, var(--primary));
+      background-size: 400% 400%;
+      animation: gradientBG 8s ease infinite;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .splash {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--white);
+      animation: fadeOut 1s ease 3.5s forwards;
+      z-index: 9999;
+      position: fixed;
+      background: transparent;
+      padding: 2rem;
+    }
+
+    .logo {
+      width: 220px;
+      max-width: 80%;
+      margin-bottom: 25px;
+      animation: popIn 1.2s ease forwards;
+      filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.2));
+    }
+
+    .headline {
+      font-size: 2.2rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+      animation: floatIn 1.4s ease forwards;
+      opacity: 0;
+      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .tagline {
+      font-size: 1.1rem;
+      font-weight: 300;
+      max-width: 400px;
+      margin-bottom: 40px;
+      animation: floatIn 1.6s ease forwards;
+      opacity: 0;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+    }
+
+    .spinner {
+      width: 50px;
+      height: 50px;
+      border: 5px solid rgba(255, 255, 255, 0.3);
+      border-top: 5px solid var(--accent);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      box-shadow: 0 0 10px rgba(0, 194, 255, 0.5);
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes floatIn {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes popIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Splash Screen -->
+  <div class="splash">
+    <img src="naila-logo.png" alt="Naila Logo" class="logo" />
+    <div class="headline">Welcome to Naila</div>
+    <div class="tagline">Your AI-powered learning partner – smarter learning starts here.</div>
+    <div class="spinner"></div>
+  </div>
+
+  <script>
+    setTimeout(() => {
+      window.location.href = "index.html"; // Replace with your main file name
+    }, 4500);
+  </script>
+
+</body>
+</html>
