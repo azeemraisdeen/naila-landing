@@ -118,6 +118,30 @@
         visibility: hidden;
       }
     }
+    /* Dark Mode Styling */
+    @media (prefers-color-scheme: dark) {
+      body {
+        background: linear-gradient(135deg, var(--dark-primary), var(--dark-secondary), var(--dark-tertiary));
+        color: var(--dark-text);
+      }
+
+      .splash {
+        background: transparent;
+      }
+
+      .headline, .tagline {
+        color: var(--dark-text);
+      }
+
+      .spinner {
+        border-top: 5px solid #00c2ff;
+        box-shadow: 0 0 10px rgba(0, 194, 255, 0.5);
+      }
+
+      .logo {
+        filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.4));
+      }
+    }
   </style>
 </head>
 <body>
