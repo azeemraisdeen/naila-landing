@@ -4,8 +4,7 @@
   <meta http-equiv="refresh" content="5;url=home.html">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Naila - Sri Lanka's 1st Smart Learning Platform for Students</title>
-  <meta name="description" content="Naila is Sri Lanka's 1st smart learning platform built exclusively for students. Powered by AI, Naila personalizes education to help students achieve better results and shape their academic future.">
+  <title>Naila – Your Learning Companion</title>
   <meta property="og:title" content="Naila - Transforming Student Learning">
   <meta property="og:description" content="Naila is your all-in-one platform for smart, personalized education. Join us to unlock your academic potential!">
   <meta property="og:image" content="https://naila.lk/og-image.png">
@@ -35,7 +34,7 @@
       height: 100%;
       font-family: 'Poppins', sans-serif;
       overflow: hidden;
-      background: linear-gradient(135deg, #7daedb, #dbe6f2); /* Updated Light Mode Background */
+      background: linear-gradient(135deg, #7daedb, #dbe6f2);
       background-size: 400% 400%;
       animation: gradientBG 8s ease infinite;
       color: #1b2c75;
@@ -71,7 +70,7 @@
     }
 
     .headline {
-      font-size: 2.2rem;
+      font-size: 2.6rem;
       font-weight: 600;
       margin-bottom: 10px;
       animation: floatIn 1.4s ease forwards;
@@ -80,7 +79,7 @@
     }
 
     .tagline {
-      font-size: 1.1rem;
+      font-size: 1.5rem;
       font-weight: 300;
       max-width: 400px;
       margin-bottom: 40px;
@@ -89,19 +88,17 @@
       text-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
     }
 
-    .spinner {
-      width: 50px;
-      height: 50px;
-      border: 5px solid rgba(255, 255, 255, 0.3);
-      border-top: 5px solid var(--accent);
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-      box-shadow: 0 0 10px rgba(0, 194, 255, 0.5);
+    .infinity-spinner {
+      width: 140px;
+      height: 140px;
+      animation: rotateInfinity 2.5s linear infinite;
+      transform-origin: center;
+      margin-top: 30px;
     }
 
-    @keyframes spin {
-      0% { transform: rotate(0); }
-      100% { transform: rotate(360deg); }
+    @keyframes rotateInfinity {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
     }
 
     @keyframes floatIn {
@@ -136,11 +133,6 @@
         color: var(--dark-text);
       }
 
-      .spinner {
-        border-top: 5px solid #00c2ff;
-        box-shadow: 0 0 10px rgba(0, 194, 255, 0.5);
-      }
-
       .logo {
         filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.4));
       }
@@ -154,7 +146,27 @@
     <img src="naila-logo.png" alt="Naila Logo" class="logo" />
     <div class="headline">Welcome to Naila</div>
     <div class="tagline">Your AI-powered learning partner – smarter learning starts here.</div>
-    <div class="spinner"></div>
+
+    <!-- Infinity Spinner -->
+    <svg class="infinity-spinner" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="infinityGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#0b3a83" />
+          <stop offset="100%" stop-color="#45c8ff" />
+        </linearGradient>
+      </defs>
+      <path d="
+        M 30,50 
+        C 30,30 70,30 100,50 
+        C 130,70 170,70 170,50 
+        C 170,30 130,30 100,50 
+        C 70,70 30,70 30,50 Z"
+        fill="none"
+        stroke="url(#infinityGradient)"
+        stroke-width="10"
+        stroke-linecap="round"
+        stroke-linejoin="round" />
+    </svg>
   </div>
 
   <script>
