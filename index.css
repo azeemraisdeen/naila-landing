@@ -179,7 +179,7 @@ footer {
     transition: transform 0.3s;
 }
 
-.socials a:hover img {
+.socials a:hover svg {
     transform: scale(1.1);
 }
 
