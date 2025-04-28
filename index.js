@@ -3,7 +3,7 @@ const alertBox = document.getElementById('alert');
 const submitBtn = document.getElementById('submit-btn');
 const spinner = document.getElementById('spinner');
 const btnText = submitBtn.querySelector('.btn-text');
-const scriptURL = "https://script.google.com/macros/s/AKfycbwft9PNqLcJaPMXk5XJx0rhVaOp-TigHuHpO70OB_mM2Zqtivccduz2Zx7Ylx09Ei_n/exec";
+const scriptURL = "https://script.google.com/macros/s/AKfycby9e2ht--7k6yViYk5R9VqMy0WdWIe5EVRNPkZnR8A24_OW1d1czxviVcDm6aZICJ2W/exec";
 
 form.addEventListener('submit', e => {
     e.preventDefault();
