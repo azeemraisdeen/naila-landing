@@ -1,0 +1,236 @@
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    color: #2e2e2e;
+}
+
+.navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    background-color: white;
+    z-index: 999;
+    height: 100px;
+    box-sizing: border-box;
+}
+
+.home-link svg {
+    display: block;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+
+span {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: #1b2c75;
+}
+
+header {
+    background: linear-gradient(to right, #7daedb, #dbe6f2);
+    color: #1b2c75;
+    padding: 4rem 2rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    font-weight: bold;
+}
+
+header h1 {
+    font-size: 3rem;
+    margin-bottom: 0.75rem;
+}
+
+header p {
+    font-size: 1.2rem;
+    opacity: 0.8;
+    max-width: 800px;
+    margin: 0.5rem auto;
+}
+
+main {
+    padding: 0 2rem;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+section {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+section:first-child {
+    flex-direction: row-reverse;
+}
+
+section:last-child {
+    border-bottom: none;
+}
+
+.section-content {
+    background-color: white;
+    padding: 2rem;
+    border: 5px solid transparent;
+    border-image: linear-gradient(to right, #7daedb, #dbe6f2);
+    border-image-slice: 1;
+    border-radius: 5px;
+    flex: 1;
+    min-width: 300px;
+}
+
+.section-content:first-child p:first-child {
+    margin-top: 0;
+}
+
+h2 {
+    color: #1b2c75;
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+}
+
+p {
+    margin-bottom: 1.5rem;
+}
+
+strong {
+    color: #1b2c75;
+}
+
+ul {
+    list-style-type: disc;
+    margin-left: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+li {
+    margin-bottom: 0.75rem;
+}
+
+footer {
+    text-align: center;
+    padding: 3rem 2rem;
+    background-color: #e9ecef;
+    font-size: 0.95rem;
+    color: #1b2c75;
+    margin-top: 3rem;
+}
+
+footer .socials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+footer .socials a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rocket {
+    display: inline-block;
+    animation: fly 2s linear infinite alternate;
+}
+
+.about-image {
+    height: auto;
+    width: 350px;
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+@media (max-width: 768px) {
+    section {
+        flex-direction: column-reverse;
+    }
+
+    section:first-child {
+        flex-direction: column-reverse;
+    }
+
+    .about-image {
+        width: 100%;
+        max-width: none;
+    }
+
+    .section-content {
+        min-width: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    p{
+        text-align: justify;
+    }
+
+    .naila-logo{
+        height: 50px;
+    }
+
+    #header-p{
+        text-align: center;
+    }
+
+    .home-link svg {
+        display: block;
+        width: 26px;
+        height: 26px;
+        cursor: pointer;
+    }
+
+    header h1 {
+        font-size: 2.2rem;
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    p, li, footer {
+        font-size: 0.95rem;
+    }
+}
+
+
+@media (prefers-color-scheme: dark) {
+    header{
+        background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+        color: white;
+    }
+
+    #header-naila{
+        color: white;
+    }
+
+    .section-content{
+        background-color: white;
+        padding: 2rem;
+        border: 5px solid transparent;
+        border-image: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+        border-image-slice: 1;
+        border-radius: 5px;
+        flex: 1;
+        min-width: 300px;
+    }
+}
+@keyframes fly {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-5px); }
+}
