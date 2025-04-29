@@ -333,8 +333,8 @@ footer {
   }
 
   .alert.error {
-    background-color: #3a1c1c;
-    color: #f3b3b3;
+    background: linear-gradient(135deg, #e6b6b8, #f6d3d4);
+    color: #771818;
   }
 
   .socials a img {
