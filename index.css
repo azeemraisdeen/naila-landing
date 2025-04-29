@@ -166,6 +166,13 @@ footer {
     margin-top: 40px;
 }
 
+#about-link{
+    text-decoration: none;
+    font-weight: 500;
+    color: #888;
+    font-size: 14px;
+}
+
 .socials {
     display: flex;
     justify-content: center;
