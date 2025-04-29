@@ -125,6 +125,13 @@ footer {
     margin-top: 3rem;
 }
 
+#home-link{
+    text-decoration: none;
+    font-weight: 500;
+    color: #888;
+    font-size: 14px;
+}
+
 footer .socials {
     display: flex;
     justify-content: center;
@@ -229,6 +236,15 @@ footer .socials a {
         flex: 1;
         min-width: 300px;
     }
+
+    #home-link{
+        text-decoration: none;
+        font-weight: 500;
+        color: #1b2c75;
+        font-size: 14px;
+    }
+
+    
 }
 @keyframes fly {
     0% { transform: translateY(0); }
