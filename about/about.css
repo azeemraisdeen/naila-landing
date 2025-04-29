@@ -128,7 +128,7 @@ footer {
 #home-link{
     text-decoration: none;
     font-weight: 500;
-    color: #888;
+    color: #1b2c75;
     font-size: 14px;
 }
 
@@ -159,47 +159,60 @@ footer .socials a {
     margin-bottom: 1.5rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
+
+@media (max-width: 1024px) {
+    .navbar {
+        padding: 0 16px;
+    }
+
+    main {
+        padding: 0 1.5rem;
+    }
+
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    header p {
+        font-size: 1.1rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .naila-logo {
+        height: 60px;
+    }
+
+    .home-link svg {
+        width: 26px;
+        height: 26px;
+    }
+}
+
 @media (max-width: 768px) {
     section {
         flex-direction: column-reverse;
-    }
-
-    section:first-child {
-        flex-direction: column-reverse;
-    }
-
-    .about-image {
-        width: 100%;
-        max-width: none;
+        text-align: center;
     }
 
     .section-content {
         min-width: auto;
     }
-}
 
-@media (max-width: 480px) {
-    p{
-        text-align: justify;
+    .about-image {
+        width: 100%;
+        max-width: none;
+        margin: 0 auto 1.5rem;
     }
 
-    .naila-logo{
-        height: 50px;
-    }
-
-    #header-p{
-        text-align: center;
-    }
-
-    .home-link svg {
-        display: block;
-        width: 26px;
-        height: 26px;
-        cursor: pointer;
+    .navbar {
+        padding: 0 12px;
     }
 
     header h1 {
-        font-size: 2.2rem;
+        font-size: 2rem;
     }
 
     header p {
@@ -207,14 +220,61 @@ footer .socials a {
     }
 
     h2 {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
     }
 
     p, li, footer {
         font-size: 0.95rem;
     }
+
+    .naila-logo {
+        height: 45px;
+    }
+
+    .home-link svg {
+        width: 24px;
+        height: 24px;
+    }
 }
 
+@media (max-width: 480px) {
+    section {
+        padding: 1rem 0;
+    }
+
+    header h1 {
+        font-size: 1.7rem;
+    }
+
+    header p {
+        font-size: 0.9rem;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+    }
+
+    p, li, footer {
+        font-size: 0.85rem;
+    }
+
+    .naila-logo {
+        height: 40px;
+    }
+
+    .home-link svg {
+        width: 22px;
+        height: 22px;
+    }
+
+    #header-p {
+        text-align: center;
+    }
+
+    p {
+        text-align: justify;
+    }
+}
 
 @media (prefers-color-scheme: dark) {
     header{
@@ -227,26 +287,9 @@ footer .socials a {
     }
 
     .section-content{
-        background-color: white;
-        padding: 2rem;
-        border: 5px solid transparent;
+        border: 5px solid transparent; 
         border-image: linear-gradient(to right, #0f0c29, #302b63, #24243e);
-        border-image-slice: 1;
+        border-image-slice: 1; 
         border-radius: 5px;
-        flex: 1;
-        min-width: 300px;
-    }
-
-    #home-link{
-        text-decoration: none;
-        font-weight: 500;
-        color: #1b2c75;
-        font-size: 14px;
-    }
-
-    
-}
-@keyframes fly {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-5px); }
+    }     
 }
